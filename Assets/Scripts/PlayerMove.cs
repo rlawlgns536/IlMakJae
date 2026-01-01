@@ -47,9 +47,12 @@ public class PlayerMove : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Lazer")
+        for (int i = 1; i <= 16; i++)
         {
-            Debug.Log("111");
+            if (other.gameObject.tag == i.ToString())
+            {
+                StatSystem.playerhp -= 1000;
+            }
         }
     }
 }
