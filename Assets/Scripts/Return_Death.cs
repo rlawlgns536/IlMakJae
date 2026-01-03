@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Return_Death : MonoBehaviour
 {
+    public static float a = 0;
+    public static float b = 0.5f;
+    public static float c = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +18,8 @@ public class Return_Death : MonoBehaviour
     {
         if (other.gameObject.tag == "Death")
         {
-            transform.position = new Vector3(0f, 0.5f, 0f);
+            JumpGumsa.jumpstate = 0;
+            transform.position = new Vector3(a, b, c);
         }
     }
 }

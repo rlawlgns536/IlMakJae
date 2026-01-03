@@ -1,79 +1,76 @@
-using JetBrains.Annotations;
-using UnityEditor;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
-public class PlayerMove : MonoBehaviour
+[RequireComponent(typeof(Rigidbody2D))]
+public class PlayerMove_Physics : MonoBehaviour
 {
-    GameObject obj;
-    public static int hint = 0;
+    [Header("이동")]
+    public float movePower = 5f;
+    public float maxSpeed = 7f;
+
+    [Header("체력 / 무적")]
+    public int health = 3;
+    public float invincibilityDuration = 1f;
+    private bool isInvincible;
+
     private Rigidbody2D rb;
-    public float jumppower = 3f;
-    public static int jumpnum = 0;
-    public int jumps = 0;
+    private SpriteRenderer sr;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+
+        rb.gravityScale = 0;
+        rb.freezeRotation = true;
     }
-    
-    public float Pspeed = 0.02f;
-    public float Uspeed = 0.005f;
+
     void Update()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (TP.tp == 1)
-        {
-            transform.position = new Vector3(-36.5f, 12f, 0f);
-            TP.tp = 0;
-            rb.gravityScale = 3;
-        }
-        rb.freezeRotation = true;
-        if (JumpGumsa.jumpstate == 0 || JumpGumsa.jumpstate == 2)
-        {
-            if (Input.GetKey(KeyCode.D))
-            {
-                transform.Translate(Pspeed, 0, 0);
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
 
-            }
-            else if (Input.GetKey(KeyCode.A))
-            { 
-                transform.Translate(-Pspeed, 0, 0);
-            }
-            else if (JumpGumsa.jumpstate == 0 && Input.GetKeyDown(KeyCode.Space) && jumpnum == 0)
-            {
-                rb.AddForce(Vector2.up * jumppower, ForceMode2D.Impulse);
-                Debug.Log("111");
-                jumpnum = 1;
-            }
-            if (Input.GetKey(KeyCode.W) && JumpGumsa.jumpstate == 2)
-            {
-                transform.Translate(0, Uspeed, 0);
-                Debug.Log("w");
-            }
-            else if (Input.GetKey(KeyCode.S) && JumpGumsa.jumpstate == 2)
-            {
-                transform.Translate(0, -Uspeed, 0);
-                Debug.Log("s");
-            }
-        }
+        rb.AddForce(new Vector2(h, v) * movePower, ForceMode2D.Impulse);
+
+        rb.linearVelocity = new Vector2(
+            Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed),
+            Mathf.Clamp(rb.linearVelocityY, -maxSpeed, maxSpeed)
+        );
     }
-    void OnCollisionEnter2D(Collision2D other)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>(); 
-        if (other.gameObject.tag == "Ddang")
-        {
-            jumpnum = 0;
-        }
-        if (other.gameObject.tag == "Byeok")
-        {
-            rb.gravityScale = 0;
-            jumps = 2;
-            Debug.Log(jumps);
-        }
+        if (other.CompareTag("Attack") && !isInvincible)
+            TakeDamage(1);
+    }
+
+    void TakeDamage(int dmg)
+    {
+        if (isInvincible) return;
+
+        health -= dmg;
+
+        if (health <= 0)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         else
+            StartCoroutine(InvincibleRoutine());
+    }
+
+    IEnumerator InvincibleRoutine()
+    {
+        isInvincible = true;
+
+        float t = 0;
+        while (t < invincibilityDuration)
         {
-            jumps = 0;
+            sr.color = new Color(1, 1, 1, 0.4f);
+            yield return new WaitForSeconds(0.1f);
+            sr.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+            t += 0.2f;
         }
+
+        isInvincible = false;
     }
 }

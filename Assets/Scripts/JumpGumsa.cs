@@ -14,6 +14,7 @@ public class JumpGumsa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(jumpstate);
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (jumpstate == 2)
         {
@@ -29,7 +30,7 @@ public class JumpGumsa : MonoBehaviour
         if (other.gameObject.tag == "Ddang")
         {
             jumpstate = 0;
-            PlayerMove.jumpnum = 0;
+            PlayerData.Instance.jumpnum = 0;
         }
         else if (other.gameObject.tag == "Byeok")
         {
@@ -47,5 +48,16 @@ public class JumpGumsa : MonoBehaviour
         {
             jumpstate = 0;
         }
-    }   
+    }
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Ddang")
+        {
+            jumpstate = 1;
+        }
+        else if (other.gameObject.tag == "Byeok")
+        {
+            jumpstate = 1;
+        }
+    }
 }

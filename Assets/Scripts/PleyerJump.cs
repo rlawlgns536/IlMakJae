@@ -1,46 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerDirectedJump : MonoBehaviour
 {
-    public float a;
-    public static float b;
-    public float c;
+    public static float b; // 1이면 중력 끔, 0이면 중력 켬
+
     void Update()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (a + 0.7 >= Time.time)
-        {
-            b = 1;
-        }
-        else if (a + 0.7 <= Time.time)
-        {
-            b = 0;
-        }
-        if (b == 1)
-        {
-            rb.gravityScale = 1;
-        }
+
+        // b가 1이면 중력 끔, 0이면 중력 켬
+        rb.gravityScale = (b == 1) ? 0 : 1;
+
         Debug.Log(b);
     }
+
     void OnCollisionStay2D(Collision2D other)
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (other.gameObject.tag == "Byeok" && b == 0)
+        if (other.gameObject.tag == "Byeok")
         {
-            a = Time.time;
-            rb.gravityScale = 0;
+            b = 1; // 벽에 닿아있으면 중력 끔
         }
     }
+
     void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.tag == "byeok" && a + 0.7 <= Time.time)
+        if (other.gameObject.tag == "Byeok")
         {
-            b = 0;
+            b = 0; // 벽에서 떨어지면 중력 켬
         }
-        
     }
-    
 }

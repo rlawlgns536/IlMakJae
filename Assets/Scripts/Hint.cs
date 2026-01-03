@@ -17,20 +17,21 @@ public class Hint : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            PlayerMove.hint += 1;
-            if (PlayerMove.hint == 1)
+            PlayerData.Instance.hint++;
+            ;
+            if (PlayerData.Instance.hint == 1)
             {
 
             }
-            else if (PlayerMove.hint == 2)
+            else if (PlayerData.Instance.hint == 2)
             {
             
             }
-            else if (PlayerMove.hint == 3)
+            else if (PlayerData.Instance.hint == 3)
             {
             
             }
-            else if (PlayerMove.hint == 4)
+            else if (PlayerData.Instance.hint == 4)
             {
             
             }

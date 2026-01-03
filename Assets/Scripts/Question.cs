@@ -1,7 +1,8 @@
 using UnityEngine;
-
+using TMPro;
 public class Question : MonoBehaviour
 {
+    public TMP_Text tmp;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,15 +12,14 @@ public class Question : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+
         if (Clear.col == true)
         {
-
-            transform.position = new Vector3(-20.5f, 12.5f, 0f);
+            tmp.text = "Q.???";
         }
         else
         {
-            transform.position = new Vector3(-200.5f, 12.5f, 0f);
+            tmp.text = "";
         }
     }
 }
