@@ -1,11 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class BossLaserController : MonoBehaviour, IBossLaserController
 {
     public int maxShieldHp = 10000;
 
     // 4초마다 호출
+    void Update()
+    {
+        if (maxShieldHp <= 0)
+        {
+            SceneManager.LoadScene("Phase2");
+        }
+    }
     public void ActivateLasersByHp()
     {
         float hpRatio = (float)StatSystem.shieldhp / maxShieldHp;

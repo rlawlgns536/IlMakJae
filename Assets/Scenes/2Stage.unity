@@ -17483,7 +17483,7 @@ GameObject:
   - component: {fileID: 996672837}
   m_Layer: 0
   m_Name: Clear
-  m_TagString: Untagged
+  m_TagString: Clear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19915,12 +19915,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994bc5b29f162214487d7263d273d4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpPower: 13
-  wallMoveSpeed: 5
-  wallCheckDistance: 0.5
-  health: 3
-  invincibilityDuration: 1
+  jumppower: 3
+  jumps: 0
+  maxspeed: 0
+  maxspeed2: 0
+  Pspeed: 0.02
+  Uspeed: 0.005
+  h: 0
+  v: 0
 --- !u!212 &1175921861
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23127,6 +23129,7 @@ GameObject:
   - component: {fileID: 1413924948}
   - component: {fileID: 1413924947}
   - component: {fileID: 1413924949}
+  - component: {fileID: 1413924950}
   m_Layer: 0
   m_Name: Circle (1)
   m_TagString: Untagged
@@ -23219,6 +23222,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b410e5cba28454989e5093cfdf37c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hint
+--- !u!114 &1413924950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413924946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97726afa0255bbf4a8cba7aacf3c0b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hint1
 --- !u!1 &1421346800
 GameObject:
   m_ObjectHideFlags: 0
@@ -26137,6 +26152,7 @@ GameObject:
   - component: {fileID: 1577335631}
   - component: {fileID: 1577335630}
   - component: {fileID: 1577335632}
+  - component: {fileID: 1577335633}
   m_Layer: 0
   m_Name: Circle (3)
   m_TagString: Untagged
@@ -26229,6 +26245,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b410e5cba28454989e5093cfdf37c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hint
+--- !u!114 &1577335633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577335629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df64009e9ebcfa74e9f15ab6dd37c8ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hint3
 --- !u!1 &1581779180
 GameObject:
   m_ObjectHideFlags: 0
@@ -30384,6 +30412,7 @@ GameObject:
   - component: {fileID: 1769271821}
   - component: {fileID: 1769271820}
   - component: {fileID: 1769271822}
+  - component: {fileID: 1769271823}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -30476,6 +30505,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b410e5cba28454989e5093cfdf37c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hint
+--- !u!114 &1769271823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769271819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f11e8b403cea64695fe91dd4a8dd45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hint5
 --- !u!1 &1770335901
 GameObject:
   m_ObjectHideFlags: 0
@@ -34280,6 +34321,7 @@ GameObject:
   - component: {fileID: 2013840780}
   - component: {fileID: 2013840779}
   - component: {fileID: 2013840781}
+  - component: {fileID: 2013840782}
   m_Layer: 0
   m_Name: Circle (2)
   m_TagString: Untagged
@@ -34372,6 +34414,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b410e5cba28454989e5093cfdf37c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hint
+--- !u!114 &2013840782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013840778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39525536095169749813cc0579fa3aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hint2
 --- !u!1 &2015897672
 GameObject:
   m_ObjectHideFlags: 0

@@ -150,11 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24dbc1b3e6367f4cb20f7ab61e4ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bombCooldown: 4
-  bombLifeTime: 4
-  explodeTime: 0.5
-  bombSprite: {fileID: 1951720647449005472, guid: 9714af41452c93143915f141c63248c3, type: 3}
-  explodeSprite: {fileID: -7883839410852809220, guid: abe1516ec622739478f331ab486d9662, type: 3}
+  maxHp: 100
+  currentHp: 0
+  moveSpeed: 2
+  minionPrefab: {fileID: 0}
+  target: {fileID: 0}
 --- !u!212 &234265520
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -305,11 +305,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24dbc1b3e6367f4cb20f7ab61e4ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bombCooldown: 4
-  bombLifeTime: 4
-  explodeTime: 0.5
-  bombSprite: {fileID: 1951720647449005472, guid: 9714af41452c93143915f141c63248c3, type: 3}
-  explodeSprite: {fileID: -7883839410852809220, guid: abe1516ec622739478f331ab486d9662, type: 3}
+  maxHp: 100
+  currentHp: 0
+  moveSpeed: 2
+  minionPrefab: {fileID: 0}
+  target: {fileID: 0}
 --- !u!212 &278883441
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -443,6 +443,7 @@ GameObject:
   - component: {fileID: 446137720}
   - component: {fileID: 446137725}
   - component: {fileID: 446137724}
+  - component: {fileID: 446137726}
   m_Layer: 0
   m_Name: contentwd_0
   m_TagString: Untagged
@@ -622,6 +623,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &446137726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446137719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f449c2672773a2438b4900846acd8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossLaserController1
+  maxShieldHp: 10000
 --- !u!1 &456513404
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,11 +713,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24dbc1b3e6367f4cb20f7ab61e4ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bombCooldown: 4
-  bombLifeTime: 4
-  explodeTime: 0.5
-  bombSprite: {fileID: 1951720647449005472, guid: 9714af41452c93143915f141c63248c3, type: 3}
-  explodeSprite: {fileID: -7883839410852809220, guid: abe1516ec622739478f331ab486d9662, type: 3}
+  maxHp: 100
+  currentHp: 0
+  moveSpeed: 2
+  minionPrefab: {fileID: 0}
+  target: {fileID: 0}
 --- !u!212 &456513407
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -854,11 +868,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24dbc1b3e6367f4cb20f7ab61e4ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bombCooldown: 4
-  bombLifeTime: 4
-  explodeTime: 0.5
-  bombSprite: {fileID: 1951720647449005472, guid: 9714af41452c93143915f141c63248c3, type: 3}
-  explodeSprite: {fileID: -7883839410852809220, guid: abe1516ec622739478f331ab486d9662, type: 3}
+  maxHp: 100
+  currentHp: 0
+  moveSpeed: 2
+  minionPrefab: {fileID: 0}
+  target: {fileID: 0}
 --- !u!212 &762664918
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1360,11 +1374,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24dbc1b3e6367f4cb20f7ab61e4ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bombCooldown: 4
-  bombLifeTime: 4
-  explodeTime: 0.5
-  bombSprite: {fileID: 1951720647449005472, guid: 9714af41452c93143915f141c63248c3, type: 3}
-  explodeSprite: {fileID: -7883839410852809220, guid: abe1516ec622739478f331ab486d9662, type: 3}
+  maxHp: 100
+  currentHp: 0
+  moveSpeed: 2
+  minionPrefab: {fileID: 0}
+  target: {fileID: 0}
 --- !u!212 &1194759562
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1559,11 +1573,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24dbc1b3e6367f4cb20f7ab61e4ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bombCooldown: 4
-  bombLifeTime: 4
-  explodeTime: 0.5
-  bombSprite: {fileID: 1951720647449005472, guid: 9714af41452c93143915f141c63248c3, type: 3}
-  explodeSprite: {fileID: -7883839410852809220, guid: abe1516ec622739478f331ab486d9662, type: 3}
+  maxHp: 100
+  currentHp: 0
+  moveSpeed: 2
+  minionPrefab: {fileID: 0}
+  target: {fileID: 0}
 --- !u!212 &1471258399
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1760,11 +1774,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24dbc1b3e6367f4cb20f7ab61e4ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bombCooldown: 4
-  bombLifeTime: 4
-  explodeTime: 0.5
-  bombSprite: {fileID: 1951720647449005472, guid: 9714af41452c93143915f141c63248c3, type: 3}
-  explodeSprite: {fileID: -7883839410852809220, guid: abe1516ec622739478f331ab486d9662, type: 3}
+  maxHp: 100
+  currentHp: 0
+  moveSpeed: 2
+  minionPrefab: {fileID: 0}
+  target: {fileID: 0}
 --- !u!212 &1578920765
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1915,11 +1929,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24dbc1b3e6367f4cb20f7ab61e4ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bombCooldown: 4
-  bombLifeTime: 4
-  explodeTime: 0.5
-  bombSprite: {fileID: 1951720647449005472, guid: 9714af41452c93143915f141c63248c3, type: 3}
-  explodeSprite: {fileID: -7883839410852809220, guid: abe1516ec622739478f331ab486d9662, type: 3}
+  maxHp: 100
+  currentHp: 0
+  moveSpeed: 2
+  minionPrefab: {fileID: 0}
+  target: {fileID: 0}
 --- !u!212 &1587052851
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2070,11 +2084,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24dbc1b3e6367f4cb20f7ab61e4ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bombCooldown: 4
-  bombLifeTime: 4
-  explodeTime: 0.5
-  bombSprite: {fileID: 1951720647449005472, guid: 9714af41452c93143915f141c63248c3, type: 3}
-  explodeSprite: {fileID: -7883839410852809220, guid: abe1516ec622739478f331ab486d9662, type: 3}
+  maxHp: 100
+  currentHp: 0
+  moveSpeed: 2
+  minionPrefab: {fileID: 0}
+  target: {fileID: 0}
 --- !u!212 &1806163720
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2225,11 +2239,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24dbc1b3e6367f4cb20f7ab61e4ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bombCooldown: 4
-  bombLifeTime: 4
-  explodeTime: 0.5
-  bombSprite: {fileID: 1951720647449005472, guid: 9714af41452c93143915f141c63248c3, type: 3}
-  explodeSprite: {fileID: -7883839410852809220, guid: abe1516ec622739478f331ab486d9662, type: 3}
+  maxHp: 100
+  currentHp: 0
+  moveSpeed: 2
+  minionPrefab: {fileID: 0}
+  target: {fileID: 0}
 --- !u!212 &1907118340
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2334,11 +2348,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24dbc1b3e6367f4cb20f7ab61e4ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  bombCooldown: 4
-  bombLifeTime: 4
-  explodeTime: 0.5
-  bombSprite: {fileID: 1951720647449005472, guid: 9714af41452c93143915f141c63248c3, type: 3}
-  explodeSprite: {fileID: -7883839410852809220, guid: abe1516ec622739478f331ab486d9662, type: 3}
+  maxHp: 100
+  currentHp: 0
+  moveSpeed: 2
+  minionPrefab: {fileID: 0}
+  target: {fileID: 0}
 --- !u!212 &2077550240
 SpriteRenderer:
   m_ObjectHideFlags: 0
