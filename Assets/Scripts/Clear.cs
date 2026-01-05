@@ -21,11 +21,10 @@ public class Clear : MonoBehaviour
         {
             PlayerData.Instance.hint += 1;
         }
-        if (other.gameObject.tag == "Clear" && stage == true && PlayerData.Instance.hint == 4)
+        if (other.gameObject.tag == "Clear" && PlayerData.Instance.hint == 4)
         {
             SceneManager.LoadScene("ClearScene");
             col = true;
-            stage = false;
         }
     }
     void OnCollisionExit2D(Collision2D other)

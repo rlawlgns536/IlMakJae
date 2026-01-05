@@ -12,6 +12,6 @@ public class BossHpTex2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tmp.text = "방어막 hp: " + StatSystem.shieldhp.ToString() + "\n보스 hp: " + StatSystem.bosshp.ToString();
+        tmp.text = "Shield hp: " + StatSystem.shieldhp.ToString() + "\nBoss hp: " + StatSystem.bosshp.ToString();
     }
 }
