@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerQSkill : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PlayerQSkill : MonoBehaviour
 
     void Update()
     {
+        if (StatSystem.bosshp <= 0)
+        {
+            SceneManager.LoadScene("1Stage");
+        }
         // ⏳ 쿨타임 감소
         if (qTimer > 0f)
             qTimer -= Time.deltaTime;

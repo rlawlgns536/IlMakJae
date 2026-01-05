@@ -12,12 +12,12 @@ public class AnswerProcess2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (A.answer == 2)
+        if (A.answer == 1)
         {
             StatSystem.hintnum += 1;
             SceneManager.LoadScene("1Stage");
         }
-        else if (A.answer != 2 && A.answer != 0)
+        else if (A.answer != 1 && A.answer != 0)
         {
             SceneManager.LoadScene("1Stage");
         }

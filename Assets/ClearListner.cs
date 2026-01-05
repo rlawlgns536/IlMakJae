@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class ButtonListner_Start : MonoBehaviour
+public class ClearListner : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,13 +15,6 @@ public class ButtonListner_Start : MonoBehaviour
     }
     public void OnButtonClicked()
     {
-        Timer_Always.time = 0;
-        StatSystem.bosshp = 10000;
-        StatSystem.bossatk = 1000;
-        StatSystem.playerhp = 3000;
-        StatSystem.playeratk = 500;
-        StatSystem.shieldhp = 10000;
-        SceneManager.LoadScene("1Stage");
-        
+        SceneManager.LoadScene("Start");
     }
 }

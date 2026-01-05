@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pillarPrefab: {fileID: 7514175400317017929, guid: 5115031a6c0f1bd4a9efaa9148c937e7, type: 3}
-  totalGameTime: 5
+  totalGameTime: 50
   startDelay: 3
   spawnInterval: 1
   minPillarDistance: 2
@@ -2118,10 +2118,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 1234
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3a6533c7d491ebd4a8dc0e7f06a5e232, type: 2}
-  m_sharedMaterial: {fileID: -2882320672454070360, guid: 3a6533c7d491ebd4a8dc0e7f06a5e232, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4ef9afa8806ace94993c6aa3de694def, type: 2}
+  m_sharedMaterial: {fileID: 3487619653565976568, guid: 4ef9afa8806ace94993c6aa3de694def, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

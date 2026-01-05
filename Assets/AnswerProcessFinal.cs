@@ -16,18 +16,22 @@ public class AnswerProcessFinal : MonoBehaviour
         if (A.answer == 3 && Clear.col == true)
         {
             tmp.text = "클리어!";
+            SceneManager.LoadScene("ClearScene");
         }
         else if (A.answer == 1 && Question1.col2 == true)
         {
             tmp.text = "정답!";
+            Question1.col2 = false;
         }
         else if (A.answer == 2 && Question2.col3 == true)
         {
             tmp.text = "정답!";
+            Question2.col3 = false;
         }
         else if (A.answer == 3 && Question3.col3 == true)
         {
             tmp.text = "정답!";
+            Question3.col3 = false;
         }
     }
 }

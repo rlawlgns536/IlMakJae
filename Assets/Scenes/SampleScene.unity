@@ -6959,8 +6959,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uAC00\uB098\uB2E4\uB77C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3a6533c7d491ebd4a8dc0e7f06a5e232, type: 2}
-  m_sharedMaterial: {fileID: -2441061803056210555, guid: 3a6533c7d491ebd4a8dc0e7f06a5e232, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4ef9afa8806ace94993c6aa3de694def, type: 2}
+  m_sharedMaterial: {fileID: 3487619653565976568, guid: 4ef9afa8806ace94993c6aa3de694def, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

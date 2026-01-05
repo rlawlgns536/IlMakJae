@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
     {
         if (IsGameOver) return;
         IsGameOver = true;
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
 
         // 배경색을 약간 어두운 검정/회색으로 설정하고 지문 출력
         ShowFinalResult(new Color(0f, 0f, 0f, 0.8f));
@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
     {
         if (IsGameOver) return;
         IsGameOver = true;
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
 
         // 배경색을 밝은 회색으로 설정하고 지문 출력
         ShowFinalResult(new Color(0.5f, 0.5f, 0.5f, 0.8f));

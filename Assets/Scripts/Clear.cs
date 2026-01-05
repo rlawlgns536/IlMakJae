@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Clear : MonoBehaviour
 {
     public static bool col = false; 
@@ -17,8 +17,13 @@ public class Clear : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Clear" && stage == true)
+        if (other.gameObject.tag == "Hint")
         {
+            PlayerData.Instance.hint += 1;
+        }
+        if (other.gameObject.tag == "Clear" && stage == true && PlayerData.Instance.hint == 4)
+        {
+            SceneManager.LoadScene("ClearScene");
             col = true;
             stage = false;
         }
