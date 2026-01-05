@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.UI; 
-
+using UnityEngine.UI;
+using TMPro;
 public class random : MonoBehaviour
 {
+    public TMP_Text tmp;
     [Header("프리팹 설정")]
     public GameObject prefabQ;
     public GameObject prefabW;
@@ -16,7 +17,7 @@ public class random : MonoBehaviour
 
     [Header("게임 설정")]
     public int totalSpawnCount = 7; 
-    public float limitTime = 3f;    // 제한 시간을 3초로 설정
+    public float limitTime = 6f;    // 제한 시간을 3초로 설정
     private float currentTime;
     private bool isGameOver = false;
     private bool isFading = false; 
@@ -96,13 +97,14 @@ public class random : MonoBehaviour
     void OnSuccess()
     {
         isGameOver = true;
+        tmp.text = "5. ①과 ②에 들어갈 변수명으로 옳은 것은?\r\n\r\n<보기>\r\nname = \"철수\" \r\nage = 17 \r\nprint(f\"이름은 {1}이고 나이는 {2}살입니다.\") \r\n —--------------------------------\r\n1.① name  ② age \r\n2.① age  ② name \r\n3.① \"name\" ② \"age\" \r\n4.① 철수  ② 17 \r\n5.① str   ② int \r\n";
         Debug.Log("<color=cyan><b>[클리어 성공!]</b></color>");
     }
 
     void OnFail(string reason)
     {
         isGameOver = true;
-        isFading = true; // 실패 시 페이드 아웃 시작
+        isFading = true; // 실패 시 페이드 아웃 시작S
         Debug.Log($"<color=red><b>[클리어 실패!]</b></color> 사유: {reason}");
     }
 

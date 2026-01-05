@@ -2,39 +2,40 @@ using UnityEngine;
 
 public class Hint : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int hintID;
+    private bool isCollected = false; // 각 힌트 독립 상태
+    private Vector3 originalPosition;
+
+    void Awake()
+    {
+        originalPosition = transform.position;
+    }
+
     void Start()
     {
-        
+        // 이미 획득한 힌트면 이동
+        if (PlayerData.Instance.collectedHintIDs.Contains(hintID))
+        {
+            isCollected = true;
+            MoveAway();
+        }
+        else
+        {
+            transform.position = originalPosition;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-      
-    }
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            PlayerData.Instance.hint++;
-            ;
-            if (PlayerData.Instance.hint == 1)
-            {
+        if (!other.gameObject.CompareTag("Player") || isCollected) return;
 
-            }
-            else if (PlayerData.Instance.hint == 2)
-            {
-            
-            }
-            else if (PlayerData.Instance.hint == 3)
-            {
-            
-            }
-            else if (PlayerData.Instance.hint == 4)
-            {
-            
-            }
-        }
+        isCollected = true;
+        PlayerData.Instance.collectedHintIDs.Add(hintID); // 공유 컬렉션에 기록
+        MoveAway();
+    }
+
+    void MoveAway()
+    {
+        transform.position = new Vector3(1000, 0, 0); // 다른 힌트에는 영향 없음
     }
 }

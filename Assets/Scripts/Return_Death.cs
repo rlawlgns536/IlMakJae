@@ -1,25 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+// Return_Death.cs
 using UnityEngine;
 
 public class Return_Death : MonoBehaviour
 {
-    public static float a = 0;
-    public static float b = 0.5f;
-    public static float c = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // static 제거 → 각 플레이어별로 저장
+    public Vector3 respawnPosition = new Vector3(0, 0.5f, 0);
 
-    // Update is called once per frame
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Death")
+        if (other.gameObject.CompareTag("Death"))
         {
             JumpGumsa.jumpstate = 0;
-            transform.position = new Vector3(a, b, c);
+
+            // 플레이어가 사망하면 자신의 respawnPosition으로 이동
+            transform.position = respawnPosition;
         }
+    }
+
+    // SavePoint에서 호출해서 플레이어의 부활 위치를 업데이트
+    public void UpdateRespawnPosition(Vector3 newPos)
+    {
+        respawnPosition = newPos;
     }
 }

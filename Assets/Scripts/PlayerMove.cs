@@ -1,76 +1,86 @@
+using JetBrains.Annotations;
+using UnityEditor;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 using UnityEngine.SceneManagement;
-using System.Collections;
-
-[RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMove_Physics : MonoBehaviour
-{
-    [Header("이동")]
-    public float movePower = 5f;
-    public float maxSpeed = 7f;
-
-    [Header("체력 / 무적")]
-    public int health = 3;
-    public float invincibilityDuration = 1f;
-    private bool isInvincible;
-
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
-
-    void Start()
-    {
+public class PlayerMove_Physcis : MonoBehaviour 
+{ 
+    GameObject obj; 
+    public static int hint = 0; 
+    private Rigidbody2D rb; 
+    public float jumppower = 3f; 
+    public static int jumpnum = 0; 
+    public int jumps = 0;
+    public float maxspeed; 
+    public float maxspeed2; 
+    void Start() 
+    { 
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
-
-        rb.gravityScale = 0;
-        rb.freezeRotation = true;
     }
-
-    void Update()
-    {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
-        rb.AddForce(new Vector2(h, v) * movePower, ForceMode2D.Impulse);
-
-        rb.linearVelocity = new Vector2(
-            Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed),
-            Mathf.Clamp(rb.linearVelocityY, -maxSpeed, maxSpeed)
-        );
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Attack") && !isInvincible)
-            TakeDamage(1);
-    }
-
-    void TakeDamage(int dmg)
-    {
-        if (isInvincible) return;
-
-        health -= dmg;
-
-        if (health <= 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        else
-            StartCoroutine(InvincibleRoutine());
-    }
-
-    IEnumerator InvincibleRoutine()
-    {
-        isInvincible = true;
-
-        float t = 0;
-        while (t < invincibilityDuration)
+    public float Pspeed = 0.02f;
+    public float Uspeed = 0.005f;
+    public float h; 
+    public float v; 
+    void Update() 
+    { 
+        h = Input.GetAxisRaw("Horizontal");
+        v = Input.GetAxisRaw("Vertical"); 
+        rb.AddForce(h * Vector2.right, ForceMode2D.Impulse);
+        if (JumpGumsa.jumpstate == 2)
         {
-            sr.color = new Color(1, 1, 1, 0.4f);
-            yield return new WaitForSeconds(0.1f);
-            sr.color = Color.white;
-            yield return new WaitForSeconds(0.1f);
-            t += 0.2f;
+            rb.AddForce(v * Vector2.up, ForceMode2D.Impulse);
         }
-
-        isInvincible = false;
+        if (rb.linearVelocityX > maxspeed)
+        { 
+            rb.linearVelocityX = maxspeed;
+        } 
+        else if (rb.linearVelocityX < -maxspeed)
+        { 
+            rb.linearVelocityX = -maxspeed; 
+        } 
+        else if (h == 0) 
+        {
+            rb.linearVelocityX = 0;
+        } 
+        if (rb.linearVelocityY > maxspeed2)
+        { 
+            rb.linearVelocityY = maxspeed2; 
+        }
+        else if (rb.linearVelocityY < -maxspeed2) 
+        { 
+            rb.linearVelocityY = -maxspeed2;
+        } 
+        if (TP.tp == 1) 
+        { 
+            transform.position = new Vector3(-36.5f, 12f, 0f); 
+            TP.tp = 0;
+            rb.gravityScale = 3; 
+        } 
+        rb.freezeRotation = true; 
+        if (JumpGumsa.jumpstate == 0 || JumpGumsa.jumpstate == 2)
+        { 
+            if (JumpGumsa.jumpstate == 0 && Input.GetKeyDown(KeyCode.Space) && PlayerData.Instance.jumpnum == 0) 
+            {
+                rb.AddForce(Vector2.up * jumppower, ForceMode2D.Impulse); 
+                Debug.Log("111"); 
+                PlayerData.Instance.jumpnum = 1; 
+            }
+        }
+    }
+    void OnCollisionEnter2D(Collision2D other) 
+    { 
+        if (other.gameObject.tag == "Ddang")
+        {
+            jumpnum = 0; 
+        } 
+        if (other.gameObject.tag == "Byeok")
+        { 
+            rb.gravityScale = 0; 
+            jumps = 2; 
+            Debug.Log(jumps);
+        } 
+        else { 
+            jumps = 0;
+        }
     }
 }

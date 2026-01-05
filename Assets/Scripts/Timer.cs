@@ -1,11 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
     public static float timer;
     public static float TargetTime = 4f;
     public static bool timesuccess;
-
+    public TMP_Text tmp;
     private IBossLaserController[] controllers;
 
     void Start()
@@ -20,7 +21,7 @@ public class Timer : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
+        tmp.text = timer.ToString();
         if (!timesuccess && timer >= TargetTime)
         {
             timesuccess = true;

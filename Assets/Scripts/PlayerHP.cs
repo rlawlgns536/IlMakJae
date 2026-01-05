@@ -3,11 +3,11 @@ using UnityEngine;
 public class PlayerHP : MonoBehaviour
 {
     public int maxHP = 3;
-    public int currentHP;
+    public int currentHP; // static 제거
 
     void Start()
     {
-        currentHP = maxHP;
+        currentHP = maxHP; // Play 시작 시 항상 초기화
     }
 
     public void TakeDamage()

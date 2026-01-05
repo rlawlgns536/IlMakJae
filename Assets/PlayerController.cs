@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
 
         Move();
         KeepInBounds();
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     private void Move()

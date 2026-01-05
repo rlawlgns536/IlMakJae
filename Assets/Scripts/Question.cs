@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class Question : MonoBehaviour
 {
     public TMP_Text tmp;
@@ -13,13 +14,15 @@ public class Question : MonoBehaviour
     void Update()
     {
 
-        if (Clear.col == true)
-        {
-            tmp.text = "Q.???";
-        }
-        else
+        if (Clear.col == true&&Clear.stage == true)
         {
             tmp.text = "";
+            SceneManager.LoadScene("Phase1");
+        }
+        else if (Clear.col == true && Clear.stage == false)
+        {
+            tmp.text = "";
+            SceneManager.LoadScene("2Stage_Boss");
         }
     }
 }

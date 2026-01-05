@@ -1,15 +1,17 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove_Monkey : MonoBehaviour
 {
-    public int maxspeed = 3;   // XÃà ÃÖ´ë ¼Óµµ
-    public int maxspeed2 = 3;  // YÃà ÃÖ´ë ¼Óµµ
+    public int maxspeed = 3;   // Xï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Óµï¿½
+    public int maxspeed2 = 3;  // Yï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Óµï¿½
 
     public float h;
     public float v;
 
     Rigidbody2D rb;
+    PlayerHP playerHP; // PlayerHP ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     private int originMaxSpeed;
     private int originMaxSpeed2;
@@ -18,6 +20,7 @@ public class PlayerMove_Monkey : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerHP = GetComponent<PlayerHP>(); // PlayerHP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         originMaxSpeed = maxspeed;
         originMaxSpeed2 = maxspeed2;
@@ -28,33 +31,42 @@ public class PlayerMove_Monkey : MonoBehaviour
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
 
+        // HP Ã¼Å©
+        if (playerHP.currentHP <= 0)
+        {
+            SceneManager.LoadScene("1Stage");
+            return; // ï¿½Ìµï¿½ ï¿½ï¿½ Update ï¿½ï¿½ï¿½ï¿½
+        }
+
         rb.AddForce(h * Vector2.right, ForceMode2D.Impulse);
         rb.AddForce(v * Vector2.up, ForceMode2D.Impulse);
 
-        // XÃà ¼Óµµ Á¦ÇÑ
-        if (rb.linearVelocityX > maxspeed)
-            rb.linearVelocityX = maxspeed;
-        else if (rb.linearVelocityX < -maxspeed)
-            rb.linearVelocityX = -maxspeed;
+        // Xï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
+        if (rb.linearVelocity.x > maxspeed)
+            rb.linearVelocity = new Vector2(maxspeed, rb.linearVelocity.y);
+        else if (rb.linearVelocity.x < -maxspeed)
+            rb.linearVelocity = new Vector2(-maxspeed, rb.linearVelocity.y);
 
         if (h == 0)
-            rb.linearVelocityX = 0;
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
 
-        // YÃà ¼Óµµ Á¦ÇÑ
-        if (rb.linearVelocityY > maxspeed2)
-            rb.linearVelocityY = maxspeed2;
-        else if (rb.linearVelocityY < -maxspeed2)
-            rb.linearVelocityY = -maxspeed2;
+        // Yï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
+        if (rb.linearVelocity.y > maxspeed2)
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, maxspeed2);
+        else if (rb.linearVelocity.y < -maxspeed2)
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, -maxspeed2);
 
         if (v == 0)
-            rb.linearVelocityY = 0;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
+
+        // E ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åº ï¿½Ù¿î½º
         if (Input.GetKeyDown(KeyCode.E))
         {
             BounceBomb();
         }
     }
 
-    // ?? ¹Ù³ª³ª ¹Ì²ô·¯Áü Ã³¸®
+    // ï¿½Ù³ï¿½ï¿½ï¿½ ï¿½Ì²ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
     public void Slip(float rate, float duration)
     {
         if (!isSlipping)
@@ -65,12 +77,10 @@ public class PlayerMove_Monkey : MonoBehaviour
     {
         isSlipping = true;
 
-        // ÃÖ¼Ò 1 º¸Àå
         maxspeed = Mathf.Max(1, Mathf.RoundToInt(originMaxSpeed * rate));
         maxspeed2 = Mathf.Max(1, Mathf.RoundToInt(originMaxSpeed2 * rate));
 
-        // ¹Ì²ô·¯Áö´Â °ü¼º
-        rb.linearVelocity *= 1.3f;
+        rb.linearVelocity *= 1.3f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         yield return new WaitForSeconds(duration);
 
@@ -78,6 +88,7 @@ public class PlayerMove_Monkey : MonoBehaviour
         maxspeed2 = originMaxSpeed2;
         isSlipping = false;
     }
+
     void BounceBomb()
     {
         Collider2D[] bombs = Physics2D.OverlapCircleAll(transform.position, 1.2f);
@@ -95,5 +106,4 @@ public class PlayerMove_Monkey : MonoBehaviour
             }
         }
     }
-
 }

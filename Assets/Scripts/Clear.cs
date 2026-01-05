@@ -3,6 +3,7 @@ using UnityEngine;
 public class Clear : MonoBehaviour
 {
     public static bool col = false; 
+    public static bool stage = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,9 +17,10 @@ public class Clear : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Clear")
+        if (other.gameObject.tag == "Clear" && stage == true)
         {
             col = true;
+            stage = false;
         }
     }
     void OnCollisionExit2D(Collision2D other)

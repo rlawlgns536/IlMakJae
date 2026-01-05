@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class Boss : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Boss : MonoBehaviour
     private bool spawned100 = false;
     private bool spawned50 = false;
     private bool spawned20 = false;
-
+    public TMP_Text tmp;
     void Start()
     {
         currentHp = maxHp;
@@ -53,6 +54,7 @@ public class Boss : MonoBehaviour
 
         if (currentHp <= 0)
         {
+            tmp.text = "8.\n다음 중 if문 조건으로 항상 참(True) 이 되는 것은? \n\n<보기> \n x = 0 \n—-----------------------------------\n1.if x: \n2.if x == 0: \n3.if x = 0: \n4.if x is 0: \n5.if x != 0:\n";
             Debug.Log("보스 사망");
             Destroy(gameObject);
         }

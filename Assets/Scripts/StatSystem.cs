@@ -8,13 +8,13 @@ public class StatSystem : MonoBehaviour
     public static int playerhp = 3000;
     public static int playeratk = 500;
     public static int parryCount = 0;
+    public static int hintnum = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         bosshp = 10000;
         bossatk = 1000;
-        shieldhp = 10000;
         playerhp = 3000;
         playeratk = 500;
 }
@@ -22,6 +22,8 @@ public class StatSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log(bosshp);
+        //Debug.Log(Time.timeScale);
+
     }
 }
