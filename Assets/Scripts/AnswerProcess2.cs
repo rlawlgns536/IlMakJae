@@ -15,7 +15,11 @@ public class AnswerProcess2 : MonoBehaviour
         if (A.answer == 2)
         {
             StatSystem.hintnum += 1;
-            SceneManager.LoadScene("Stage1");
+            SceneManager.LoadScene("1Stage");
+        }
+        else if (A.answer != 2 && A.answer != 0)
+        {
+            SceneManager.LoadScene("1Stage");
         }
     }
 }

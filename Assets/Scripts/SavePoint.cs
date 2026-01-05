@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SavePoint : MonoBehaviour
+public class SavePoint12 : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,9 +17,9 @@ public class SavePoint : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Return_Death.a = this.transform.position.x;
-            Return_Death.b = this.transform.position.y + 1;
-            Return_Death.c = this.transform.position.z;
+            //Return_Death.a = this.transform.position.x;
+            //Return_Death.b = this.transform.position.y + 1;
+            //Return_Death.c = this.transform.position.z;
         }
         transform.Translate(0, 1000, 0);
     }

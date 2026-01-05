@@ -468,7 +468,7 @@ Transform:
   m_GameObject: {fileID: 39387131}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.6, y: 8.64, z: 0}
+  m_LocalPosition: {x: 2.35, y: 8.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2106,7 +2106,7 @@ Transform:
   m_GameObject: {fileID: 159322279}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.29, y: 30.73, z: 0}
+  m_LocalPosition: {x: -33.27, y: 30.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8439,7 +8439,7 @@ Transform:
   m_GameObject: {fileID: 939737582}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.45, y: 8.52, z: 0}
+  m_LocalPosition: {x: -23.5, y: 8.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13081,7 +13081,7 @@ MonoBehaviour:
   m_text: 1234565432
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a6533c7d491ebd4a8dc0e7f06a5e232, type: 2}
-  m_sharedMaterial: {fileID: -2882320672454070360, guid: 3a6533c7d491ebd4a8dc0e7f06a5e232, type: 2}
+  m_sharedMaterial: {fileID: -2441061803056210555, guid: 3a6533c7d491ebd4a8dc0e7f06a5e232, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19153,7 +19153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -377, y: -162.5}
+  m_AnchoredPosition: {x: -368.75, y: -164.02}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1849540307
@@ -24444,7 +24444,7 @@ Transform:
   m_GameObject: {fileID: 1995954466}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33.44, y: 30.6, z: 0}
+  m_LocalPosition: {x: -20.14, y: 30.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24677,7 +24677,6 @@ GameObject:
   - component: {fileID: 2020423990}
   - component: {fileID: 2020423991}
   - component: {fileID: 2020423992}
-  - component: {fileID: 2020423993}
   - component: {fileID: 2020423994}
   m_Layer: 0
   m_Name: Player
@@ -24754,7 +24753,7 @@ Transform:
   m_GameObject: {fileID: 2020423979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.45, y: 0.49, z: 0}
+  m_LocalPosition: {x: -0.41, y: 8.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24903,18 +24902,6 @@ MonoBehaviour:
   Uspeed: 0.005
   h: 0
   v: 0
---- !u!114 &2020423993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020423979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0124434c25f5254fba8200c0990dae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Timer_Always
 --- !u!60 &2020423994
 PolygonCollider2D:
   m_ObjectHideFlags: 0

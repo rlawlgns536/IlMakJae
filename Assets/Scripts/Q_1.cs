@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Q : MonoBehaviour
+public class Q_1 : MonoBehaviour
 {
     public KeyCode targetKey = KeyCode.None; // 초기값 설정
 
